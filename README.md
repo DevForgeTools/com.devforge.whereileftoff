@@ -18,7 +18,7 @@
 - **Notes Browser**: Sort, filter, and group notes by day or session.
 - **Titles-only mode**: ultra-compact view for fast scanning.
 - **Reference badges** (`● N`) showing how many asset refs a note has, with Ping / Select / Reveal actions.
-- **Keyboard shortcuts**: `Ctrl/Cmd + F` to focus search, `Esc` to clear search/focus.
+- **Keyboard shortcuts**: `Ctrl + F` to focus search, `Esc` to clear search/focus.
 - **Persistence**: search, filters and layout are remembered per project.
 - **Editor-only**: no runtime code, safe for builds.
 - **UPM-friendly**: install via Git URL for easy updating.
