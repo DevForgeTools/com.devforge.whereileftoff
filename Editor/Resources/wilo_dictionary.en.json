@@ -1,0 +1,162 @@
+{
+  "entries": [
+    { "key": "window.title", "value": "Where I Left Off" },
+    { "key": "btn.save", "value": "Save" },
+    { "key": "btn.saveAsNew", "value": "Save as new" },
+    { "key": "btn.cancel", "value": "Cancel" },
+    { "key": "btn.addSelection", "value": "Add selection" },
+    { "key": "lbl.title", "value": "Title" },
+    { "key": "lbl.writeTitle", "value": "Write a title ..." },
+    { "key": "lbl.message", "value": "Message" },
+    { "key": "lbl.references", "value": "References (project assets)" },
+    { "key": "lbl.added", "value": "Added:" },
+    { "key": "lbl.ignored", "value": "Ignored:" },
+    { "key": "lbl.note", "value": "Note" },
+    { "key": "msg.exitPrompt", "value": "Choose an option before closing Unity." },
+
+    { "key": "btn.clearRefs", "value": "Clear references" },
+    { "key": "msg.confirmClearRefs", "value": "Clear all references?" },
+    { "key": "btn.ping", "value": "Ping" },
+    { "key": "btn.clearNote", "value": "Clear note" },
+    { "key": "msg.confirmClearNoteDirty", "value": "Clear the current draft? You have unsaved changes." },
+    { "key": "btn.restoreLast", "value": "Restore last" },
+    { "key": "msg.confirmRestoreNoteDirty", "value": "Restore the last note and discard the current draft?" },
+    { "key": "ctx.resetMsgSize", "value": "Reset message area size" },
+    { "key": "ctx.openPreferences", "value": "Open preferences…" },
+    { "key": "msg.exitHelp", "value": "You're closing Unity. Choose how to proceed with the current note." },
+    { "key": "btn.saveAndQuit", "value": "Save & Quit" },
+    { "key": "btn.saveNewAndQuit", "value": "Save as new & Quit" },
+    { "key": "btn.quitWithoutSaving", "value": "Quit without saving" },
+    { "key": "msg.saved", "value": "Saved." },
+    { "key": "msg.savedAsNew", "value": "Saved as new." },
+    { "key": "msg.titleEmptyConfirm", "value": "The title is empty. Do you want to save anyway?" },
+    { "key": "msg.unsavedChanges", "value": "You have unsaved changes." },
+    { "key": "btn.discard", "value": "Discard" },
+    { "key": "msg.closeCancelled", "value": "Close cancelled" },
+    { "key": "btn.yes", "value": "Yes" },
+    { "key": "btn.no", "value": "No" },
+    { "key": "btn.ok", "value": "OK" },
+
+    { "key": "prefs.section.language", "value": "Language" },
+    { "key": "prefs.lang.label", "value": "Editor language" },
+    { "key": "prefs.lang.system", "value": "System (auto)" },
+    { "key": "prefs.lang.english", "value": "English" },
+    { "key": "prefs.lang.spanish", "value": "Spanish" },
+    { "key": "prefs.log.forcedLang", "value": "Forced language:" },
+
+    { "key": "prefs.section.startup", "value": "Startup" },
+    { "key": "prefs.startup.showPopup.label", "value": "Show popup on startup" },
+    { "key": "prefs.startup.showPopup.tip", "value": "Show a popup with recent notes when the Editor opens." },
+    { "key": "prefs.startup.range.label", "value": "Default popup range" },
+    { "key": "prefs.startup.range.option.lastSession", "value": "Last session" },
+    { "key": "prefs.startup.range.option.lastDay", "value": "Last day" },
+
+    { "key": "prefs.section.onExit", "value": "On Quit" },
+    { "key": "prefs.exit.showOnQuit.label", "value": "Show window when quitting Unity" },
+    { "key": "prefs.exit.showOnQuit.tip", "value": "When quitting the Editor, open a window to write/save a note." },
+
+    { "key": "prefs.section.save", "value": "Saving" },
+    { "key": "prefs.save.overwrite.label", "value": "Overwrite by title" },
+    { "key": "prefs.save.overwrite.opt.dont", "value": "Never (always create new)" },
+    { "key": "prefs.save.overwrite.opt.bySession", "value": "Match title in SAME SESSION" },
+    { "key": "prefs.save.overwrite.opt.byDay", "value": "Match title on SAME DAY" },
+    { "key": "prefs.save.help.mode.dont", "value": "'Save' never overwrites; it always creates a new entry." },
+    { "key": "prefs.save.help.mode.bySession", "value": "Overwrite when TITLE matches and it's the SAME SESSION (day is ignored)." },
+    { "key": "prefs.save.help.mode.byDay", "value": "Overwrite when TITLE matches and it's the SAME DAY." },
+
+    { "key": "prefs.section.user", "value": "User" },
+    { "key": "prefs.user.alias.label", "value": "Per-user alias" },
+    { "key": "prefs.user.alias.tip", "value": "If set, read-state will be saved to read_state.<alias>.json" },
+    { "key": "prefs.user.openFolder.btn", "value": "Open state folder" },
+
+    { "key": "popup.title", "value": "Where I Left Off — Last notes" },
+
+    { "key": "popup.mode.currentSession", "value": "Current session" },
+    { "key": "popup.mode.currentDay", "value": "Current day" },
+    { "key": "popup.mode.lastSession", "value": "Last session" },
+    { "key": "popup.mode.lastDay", "value": "Last day" },
+
+    { "key": "popup.titlesOnly", "value": "Titles only" },
+    { "key": "popup.expandAll", "value": "Expand all" },
+    { "key": "popup.collapseAll", "value": "Collapse all" },
+    { "key": "popup.markVisibleRead", "value": "Mark visible as read" },
+    { "key": "popup.refresh", "value": "Refresh" },
+
+    { "key": "popup.noTitle", "value": "(Untitled)" },
+    { "key": "popup.badge.reread", "value": "Re-read" },
+    { "key": "popup.badge.new", "value": "New" },
+
+    { "key": "popup.references", "value": "References" },
+    { "key": "popup.btn.ping", "value": "Ping" },
+    { "key": "popup.btn.select", "value": "Select" },
+    { "key": "popup.btn.reveal.macos", "value": "Reveal in Finder" },
+    { "key": "popup.btn.reveal.win", "value": "Reveal in Explorer" },
+    { "key": "popup.btn.close", "value": "Close" },
+
+    { "key": "popup.ctx.markUnread", "value": "Mark as UNREAD" },
+    { "key": "popup.ctx.markRead", "value": "Mark as read" },
+    { "key": "popup.ctx.markReRead", "value": "Mark to Re-read" },
+    { "key": "popup.ctx.unmarkReRead", "value": "Remove Re-read" },
+
+    { "key": "popup.range.currentDay", "value": "Current day: {0}" },
+    { "key": "popup.range.lastDay.noData", "value": "Last day: — (no data)" },
+    { "key": "popup.range.lastDay", "value": "Last day: {0}" },
+    { "key": "popup.range.session.prefix.current", "value": "Current session" },
+    { "key": "popup.range.session.prefix.last", "value": "Last session" },
+    { "key": "popup.range.session.noData", "value": "{0}: — (no data)" },
+    { "key": "popup.range.session.window", "value": "{0}: {1} ➝ {2}  ·  {3}" },
+
+    { "key": "browser.title", "value": "Where I Left Off — Notes Browser" },
+
+    { "key": "browser.group.none", "value": "Group: None" },
+    { "key": "browser.group.day", "value": "Group: Day" },
+    { "key": "browser.group.session", "value": "Group: Session" },
+
+    { "key": "browser.sort.dateDesc", "value": "Date ↓" },
+    { "key": "browser.sort.dateAsc", "value": "Date ↑" },
+    { "key": "browser.sort.titleAsc", "value": "Title A–Z" },
+    { "key": "browser.sort.titleDesc", "value": "Title Z–A" },
+
+    { "key": "browser.filter.all", "value": "All" },
+    { "key": "browser.filter.unread", "value": "Unread" },
+    { "key": "browser.filter.reread", "value": "Re-read" },
+
+    { "key": "browser.titlesOnly", "value": "Titles only" },
+    { "key": "browser.expandVisible", "value": "Expand visible" },
+    { "key": "browser.collapseVisible", "value": "Collapse visible" },
+    { "key": "browser.markVisibleRead", "value": "Mark visible as read" },
+    { "key": "browser.refresh", "value": "Refresh" },
+
+    { "key": "browser.pageXofY", "value": "Page {0}/{1}  ·  {2} notes" },
+    { "key": "browser.totalNotes", "value": "{0} notes" },
+    { "key": "browser.prev", "value": "< Previous" },
+    { "key": "browser.next", "value": "Next >" },
+    { "key": "browser.close", "value": "Close" },
+
+    { "key": "browser.btn.edit", "value": "Edit" },
+    { "key": "browser.btn.duplicate", "value": "Duplicate" },
+    { "key": "browser.btn.delete", "value": "Delete" },
+
+    { "key": "browser.confirm.delete.title", "value": "Delete note" },
+    { "key": "browser.confirm.delete.msg", "value": "Are you sure you want to delete this note? This action cannot be undone." },
+    { "key": "browser.confirm.delete.ok", "value": "Delete" },
+    { "key": "browser.confirm.delete.cancel", "value": "Cancel" },
+
+    { "key": "browser.group.header.day", "value": "{0}  ·  {1}   ({2} notes · {3} refs)" },
+    { "key": "browser.group.header.session", "value": "{0}  ·  Session #{1}  ·  {2}   ({3} notes · {4} refs)" },
+
+    { "key": "docs.windowTitle", "value": "Where I Left Off — Documentation" },
+    { "key": "docs.openExternally", "value": "Open Externally" },
+    { "key": "docs.reload", "value": "Reload" },
+    { "key": "docs.defaultName", "value": "README" },
+    { "key": "docs.noReadmeFound.title", "value": "No README found." },
+    { "key": "docs.noReadmeFound.body", "value": "Make sure README.es.md / README.en.md exist in the package root." },
+    { "key": "docs.codeBlockLabel", "value": "Code" },
+
+    { "key": "ctx.prefs", "value": "Preferences" }
+
+
+
+
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "name": "com.devforge.whereileftoff",
+  "displayName": "Where I Left Off",
+  "version": "1.0.0",
+  "description": "Quick exit notes and next-launch reminders for your Unity project. Save references to scenes, prefabs, and scripts.",
+  "unity": "6000.0",
+  "unityRelease": "43f1",
+  "author": {
+    "name": "Miguel Ángel García Lucena - Maglucen",
+    "email": "maglucen@gmail.com",
+    "url": "https://maglucen.com"
+  },
+  "license": "MIT",
+  "documentationUrl": "https://github.com/DevForgeTools/WhereILeftOff",
+  "changelogUrl": "https://github.com/DevForgeTools/WhereILeftOff/releases",
+  "keywords": ["unity", "productivity", "notes", "editor", "workflow", "session"]
+}

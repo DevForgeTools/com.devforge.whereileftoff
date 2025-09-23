@@ -1,0 +1,161 @@
+{
+  "entries": [
+    { "key": "window.title", "value": "Where I Left Off" },
+    { "key": "btn.save", "value": "Guardar" },
+    { "key": "btn.saveAsNew", "value": "Guardar como nueva" },
+    { "key": "btn.cancel", "value": "Cancelar" },
+    { "key": "btn.addSelection", "value": "Añadir selección" },
+    { "key": "lbl.title", "value": "Título" },
+    { "key": "lbl.writeTitle", "value": "Escribe un título ..." },
+    { "key": "lbl.message", "value": "Mensaje" },
+    { "key": "lbl.references", "value": "Referencias (assets del proyecto)" },
+    { "key": "lbl.added", "value": "Añadidos:" },
+    { "key": "lbl.ignored", "value": "Ignorados:" },
+    { "key": "lbl.note", "value": "Nota" },
+    { "key": "msg.exitPrompt", "value": "Elige una opción antes de cerrar Unity." },
+    
+    { "key": "btn.clearRefs", "value": "Vaciar referencias" },
+    { "key": "msg.confirmClearRefs", "value": "¿Vaciar todas las referencias?" },
+    { "key": "btn.ping", "value": "Ping" },
+    { "key": "btn.clearNote", "value": "Limpiar nota" },
+    { "key": "msg.confirmClearNoteDirty", "value": "¿Vaciar el borrador actual? Hay cambios sin guardar." },
+    { "key": "btn.restoreLast", "value": "Restaurar última" },
+    { "key": "msg.confirmRestoreNoteDirty", "value": "¿Restaurar la última nota y descartar el borrador actual?" },
+    { "key": "ctx.resetMsgSize", "value": "Resetear tamaño del mensaje" },
+    { "key": "ctx.openPreferences", "value": "Abrir preferencias…" },
+    { "key": "msg.exitHelp", "value": "Estás cerrando Unity. Elige cómo proceder con la nota actual." },
+    { "key": "btn.saveAndQuit", "value": "Guardar y salir" },
+    { "key": "btn.saveNewAndQuit", "value": "Guardar como nueva y salir" },
+    { "key": "btn.quitWithoutSaving", "value": "Salir sin guardar" },
+    { "key": "msg.saved", "value": "Guardado." },
+    { "key": "msg.savedAsNew", "value": "Guardado como nueva." },
+    { "key": "msg.titleEmptyConfirm", "value": "El título está vacío. ¿Quieres guardar de todos modos?" },
+    { "key": "msg.unsavedChanges", "value": "Hay cambios sin guardar." },
+    { "key": "btn.discard", "value": "Descartar" },
+    { "key": "msg.closeCancelled", "value": "Cierre cancelado" },
+    { "key": "btn.yes", "value": "Sí" },
+    { "key": "btn.no", "value": "No" },
+    { "key": "btn.ok", "value": "Aceptar" },
+
+    { "key": "prefs.section.language", "value": "Idioma" },
+    { "key": "prefs.lang.label", "value": "Idioma (Editor)" },
+    { "key": "prefs.lang.system", "value": "Sistema (auto)" },
+    { "key": "prefs.lang.english", "value": "Inglés" },
+    { "key": "prefs.lang.spanish", "value": "Español" },
+    { "key": "prefs.log.forcedLang", "value": "Idioma forzado:" },
+
+    { "key": "prefs.section.startup", "value": "Arranque" },
+    { "key": "prefs.startup.showPopup.label", "value": "Mostrar popup al arrancar" },
+    { "key": "prefs.startup.showPopup.tip", "value": "Muestra un popup con notas recientes al abrir el Editor." },
+    { "key": "prefs.startup.range.label", "value": "Rango por defecto del popup" },
+    { "key": "prefs.startup.range.option.lastSession", "value": "Última sesión" },
+    { "key": "prefs.startup.range.option.lastDay", "value": "Último día" },
+
+    { "key": "prefs.section.onExit", "value": "Comportamiento al cerrar" },
+    { "key": "prefs.exit.showOnQuit.label", "value": "Mostrar ventana al cerrar Unity" },
+    { "key": "prefs.exit.showOnQuit.tip", "value": "Al intentar cerrar el Editor, abrir una ventana para escribir/guardar una nota." },
+
+    { "key": "prefs.section.save", "value": "Guardado" },
+    { "key": "prefs.save.overwrite.label", "value": "Sobrescribir por título" },
+    { "key": "prefs.save.overwrite.opt.dont", "value": "Nunca (crear siempre nueva)" },
+    { "key": "prefs.save.overwrite.opt.bySession", "value": "Coincide título y MISMA SESIÓN" },
+    { "key": "prefs.save.overwrite.opt.byDay", "value": "Coincide título y MISMO DÍA" },
+    { "key": "prefs.save.help.mode.dont", "value": "No se sobrescribe nunca. 'Guardar' siempre crea una entrada nueva." },
+    { "key": "prefs.save.help.mode.bySession", "value": "Sobrescribe si coincide TÍTULO y es la MISMA SESIÓN (se ignora el día)." },
+    { "key": "prefs.save.help.mode.byDay", "value": "Sobrescribe si coincide TÍTULO y es el MISMO DÍA." },
+
+    { "key": "prefs.section.user", "value": "Usuario" },
+    { "key": "prefs.user.alias.label", "value": "Alias por usuario" },
+    { "key": "prefs.user.alias.tip", "value": "Si se especifica, el estado de lectura se guardará en read_state.<alias>.json" },
+    { "key": "prefs.user.openFolder.btn", "value": "Abrir carpeta de estado" },
+
+    { "key": "popup.title", "value": "Where I Left Off — Últimas notas" },
+
+    { "key": "popup.mode.currentSession", "value": "Sesión actual" },
+    { "key": "popup.mode.currentDay", "value": "Día actual" },
+    { "key": "popup.mode.lastSession", "value": "Última sesión" },
+    { "key": "popup.mode.lastDay", "value": "Último día" },
+
+    { "key": "popup.titlesOnly", "value": "Solo títulos" },
+    { "key": "popup.expandAll", "value": "Expandir todo" },
+    { "key": "popup.collapseAll", "value": "Colapsar todo" },
+    { "key": "popup.markVisibleRead", "value": "Marcar visibles como leídas" },
+    { "key": "popup.refresh", "value": "Refrescar" },
+
+    { "key": "popup.noTitle", "value": "(Sin título)" },
+    { "key": "popup.badge.reread", "value": "Releer" },
+    { "key": "popup.badge.new", "value": "Nuevo" },
+
+    { "key": "popup.references", "value": "Referencias" },
+    { "key": "popup.btn.ping", "value": "Ping" },
+    { "key": "popup.btn.select", "value": "Seleccionar" },
+    { "key": "popup.btn.reveal.macos", "value": "Abrir en Finder" },
+    { "key": "popup.btn.reveal.win", "value": "Abrir en Explorer" },
+    { "key": "popup.btn.close", "value": "Cerrar" },
+
+    { "key": "popup.ctx.markUnread", "value": "Marcar como NO leído" },
+    { "key": "popup.ctx.markRead", "value": "Marcar como leído" },
+    { "key": "popup.ctx.markReRead", "value": "Marcar para 'Releer'" },
+    { "key": "popup.ctx.unmarkReRead", "value": "Quitar 'Releer'" },
+
+    { "key": "popup.range.currentDay", "value": "Día actual: {0}" },
+    { "key": "popup.range.lastDay.noData", "value": "Último día: — (sin datos)" },
+    { "key": "popup.range.lastDay", "value": "Último día: {0}" },
+    { "key": "popup.range.session.prefix.current", "value": "Sesión actual" },
+    { "key": "popup.range.session.prefix.last", "value": "Última sesión" },
+    { "key": "popup.range.session.noData", "value": "{0}: — (sin datos)" },
+    { "key": "popup.range.session.window", "value": "{0}: {1} ➝ {2}  ·  {3}" },
+
+    { "key": "browser.title", "value": "Where I Left Off — Explorador de notas" },
+
+    { "key": "browser.group.none", "value": "Agrupar: Ninguno" },
+    { "key": "browser.group.day", "value": "Agrupar: Día" },
+    { "key": "browser.group.session", "value": "Agrupar: Sesión" },
+
+    { "key": "browser.sort.dateDesc", "value": "Fecha ↓" },
+    { "key": "browser.sort.dateAsc", "value": "Fecha ↑" },
+    { "key": "browser.sort.titleAsc", "value": "Título A–Z" },
+    { "key": "browser.sort.titleDesc", "value": "Título Z–A" },
+
+    { "key": "browser.filter.all", "value": "Todos" },
+    { "key": "browser.filter.unread", "value": "No leídas" },
+    { "key": "browser.filter.reread", "value": "Releer" },
+
+    { "key": "browser.titlesOnly", "value": "Solo títulos" },
+    { "key": "browser.expandVisible", "value": "Expandir visibles" },
+    { "key": "browser.collapseVisible", "value": "Colapsar visibles" },
+    { "key": "browser.markVisibleRead", "value": "Marcar visibles como leídas" },
+    { "key": "browser.refresh", "value": "Actualizar" },
+
+    { "key": "browser.pageXofY", "value": "Página {0}/{1}  ·  {2} notas" },
+    { "key": "browser.totalNotes", "value": "{0} notas" },
+    { "key": "browser.prev", "value": "< Anterior" },
+    { "key": "browser.next", "value": "Siguiente >" },
+    { "key": "browser.close", "value": "Cerrar" },
+
+    { "key": "browser.btn.edit", "value": "Editar" },
+    { "key": "browser.btn.duplicate", "value": "Duplicar" },
+    { "key": "browser.btn.delete", "value": "Borrar" },
+
+    { "key": "browser.confirm.delete.title", "value": "Borrar nota" },
+    { "key": "browser.confirm.delete.msg", "value": "¿Seguro que quieres borrar esta nota? Esta acción no se puede deshacer." },
+    { "key": "browser.confirm.delete.ok", "value": "Borrar" },
+    { "key": "browser.confirm.delete.cancel", "value": "Cancelar" },
+
+    { "key": "browser.group.header.day", "value": "{0}  ·  {1}   ({2} notas · {3} refs)" },
+    { "key": "browser.group.header.session", "value": "{0}  ·  Sesión #{1}  ·  {2}   ({3} notas · {4} refs)" },
+
+    { "key": "docs.windowTitle", "value": "Where I Left Off — Documentación" },
+    { "key": "docs.openExternally", "value": "Abrir externamente" },
+    { "key": "docs.reload", "value": "Recargar" },
+    { "key": "docs.defaultName", "value": "README" },
+    { "key": "docs.noReadmeFound.title", "value": "No se encontró el README." },
+    { "key": "docs.noReadmeFound.body", "value": "Asegúrate de que README.es.md / README.en.md existen en la raíz del paquete." },
+    { "key": "docs.codeBlockLabel", "value": "Código" },
+
+    { "key": "ctx.prefs", "value": "Preferencias" }
+
+
+
+  ]
+}
