@@ -1,6 +1,6 @@
 # Where I Left Off (WILO)
 
-[![Version](https://img.shields.io/badge/version-1.0.0-blue.svg)](CHANGELOG.md) [![License](https://img.shields.io/badge/license-EULA-important.svg)](EULA.md) [![Issues](https://img.shields.io/badge/issues-open-brightgreen.svg)](https://github.com/maglucen/WhereILeftOff/issues)
+[![Version](https://img.shields.io/badge/version-1.0.0-blue.svg)](CHANGELOG.md) [![License](https://img.shields.io/badge/license-EULA-important.svg)](EULA.md) [![Issues](https://img.shields.io/badge/issues-open-brightgreen.svg)](https://github.com/DevForgeTools/WhereILeftOff/issues)
 
 **Where I Left Off** (WILO) is a lightweight Unity Editor utility to help you instantly pick up work where you left it. It provides a startup popup showing your last session/day, and a full Notes Browser with grouping, filters, reference badges and keyboard shortcuts — all Editor-only and persistent per project.
 
