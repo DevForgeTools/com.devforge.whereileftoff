@@ -167,6 +167,7 @@ namespace DevForge.Wilo.Editor
                         SetForcedLanguage(forced);
                         Locale.ClearCache();
                         Strings.Reload();
+                        WiloNoteWindow.RecomputeExitMinWidthForOpen();
                     }
 
                     // ----- Startup -----

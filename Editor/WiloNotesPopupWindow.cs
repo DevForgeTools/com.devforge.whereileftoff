@@ -69,6 +69,9 @@ namespace DevForge.Wilo.Editor
         float _toolbarMinWidth;
         /// <summary>Prevents recomputing min size multiple times.</summary>
         bool _minSizeLocked;
+        
+        int _lastToolbarHash;
+        float _lastComputedMin;
 
         // Shortcuts
         /// <summary>Request to focus the search field on next repaint (Ctrl/Cmd+F).</summary>
@@ -341,6 +344,24 @@ namespace DevForge.Wilo.Editor
         /// </summary>
         void OnGUI()
         {
+            if (Event.current.type == EventType.Layout)
+            {
+                // hash de labels actuales (si cambian EN/ES, cambia el hash)
+                string labels = string.Join("|", new[]{
+                    Strings.T("tabs.currentSession"), Strings.T("tabs.currentDay"),
+                    Strings.T("tabs.lastSession"),   Strings.T("tabs.lastDay"),
+                    Strings.T("popup.titlesOnly"),   Strings.T("popup.expandAll"),
+                    Strings.T("popup.collapseAll"),  Strings.T("popup.markVisibleRead"),
+                    Strings.T("popup.refresh")
+                });
+                int h = labels.GetHashCode();
+
+                bool labelsChanged = (h != _lastToolbarHash);
+                _lastToolbarHash = h;
+
+                EnsureFitsToolbar(allowGrow: labelsChanged || position.width < minSize.x);
+            }
+            
             using (new EditorGUILayout.VerticalScope(Styles.Pad))
             {
                 HandleShortcuts(Event.current);
@@ -348,8 +369,8 @@ namespace DevForge.Wilo.Editor
                 if (!_minSizeLocked && Event.current.type == EventType.Layout)
                 {
                     _toolbarMinWidth = CalcToolbarMinWidth();
-                    minSize = new Vector2(Mathf.Max(minSize.x, _toolbarMinWidth), minSize.y);
-                    _minSizeLocked = true;
+                    var minX = Mathf.Max(560f, _toolbarMinWidth);
+                    minSize = new Vector2(minX, minSize.y);
                 }
 
                 // Apply focus/blur requests during Repaint
@@ -488,24 +509,20 @@ namespace DevForge.Wilo.Editor
                 GUILayout.Space(6);
 
                 // Search field
+                float searchMin = 200f;
                 EditorGUI.BeginChangeCheck();
                 GUI.SetNextControlName(SearchControlName);
-                var newSearch = EditorGUILayout.TextField(_search, GUILayout.MinWidth(200), GUILayout.MaxWidth(320), GUILayout.ExpandWidth(true));
-                if (EditorGUI.EndChangeCheck())
-                {
-                    _search = newSearch;
-                    RebuildVisible();
-                }
+                var newSearch = EditorGUILayout.TextField(_search,
+                    GUILayout.MinWidth(searchMin), GUILayout.MaxWidth(320), GUILayout.ExpandWidth(true));
+                if (EditorGUI.EndChangeCheck()) { _search = newSearch; RebuildVisible(); }
 
-                // Clear search button
                 if (GUILayout.Button("✕", EditorStyles.miniButton, GUILayout.Width(24)))
                 {
-                    if (!string.IsNullOrEmpty(_search))
-                    {
-                        _search = "";
-                        GUI.FocusControl(null);
-                        RebuildVisible();
-                        Repaint();
+                    if (!string.IsNullOrEmpty(_search)) 
+                    { 
+                        _search = ""; GUI.FocusControl(null); 
+                        RebuildVisible(); 
+                        Repaint(); 
                     }
                 }
 
@@ -516,13 +533,20 @@ namespace DevForge.Wilo.Editor
             using (new EditorGUILayout.HorizontalScope())
             {
                 GUILayout.FlexibleSpace();
+                
+                var btn = EditorStyles.miniButton;
+                float wTitles   = btn.CalcSize(new GUIContent(Strings.T("popup.titlesOnly"))).x + 12f;
+                float wExpand   = btn.CalcSize(new GUIContent(Strings.T("popup.expandAll"))).x + 12f;
+                float wCollapse = btn.CalcSize(new GUIContent(Strings.T("popup.collapseAll"))).x + 12f;
+                float wMark     = btn.CalcSize(new GUIContent(Strings.T("popup.markVisibleRead"))).x + 12f;
+                float wRefresh  = btn.CalcSize(new GUIContent(Strings.T("popup.refresh"))).x + 12f;
 
                 // Titles-only toggle
                 bool newTitlesOnly = GUILayout.Toggle(
                     _titlesOnly,
                     new GUIContent(Strings.T("popup.titlesOnly")),
                     EditorStyles.miniButton,
-                    GUILayout.Width(100)
+                    GUILayout.Width(wTitles)
                 );
                 if (newTitlesOnly != _titlesOnly)
                 {
@@ -530,16 +554,16 @@ namespace DevForge.Wilo.Editor
                     Repaint();
                 }
 
-                if (GUILayout.Button(Strings.T("popup.expandAll"), EditorStyles.miniButton, GUILayout.Width(110)))
+                if (GUILayout.Button(Strings.T("popup.expandAll"), EditorStyles.miniButton, GUILayout.Width(wExpand)))
                     foreach (var n in _visible) _expanded[NoteKey(n)] = true;
 
-                if (GUILayout.Button(Strings.T("popup.collapseAll"), EditorStyles.miniButton, GUILayout.Width(110)))
+                if (GUILayout.Button(Strings.T("popup.collapseAll"), EditorStyles.miniButton, GUILayout.Width(wCollapse)))
                     foreach (var n in _visible) _expanded[NoteKey(n)] = false;
 
-                if (GUILayout.Button(Strings.T("popup.markVisibleRead"), EditorStyles.miniButton, GUILayout.Width(200)))
+                if (GUILayout.Button(Strings.T("popup.markVisibleRead"), EditorStyles.miniButton, GUILayout.Width(wMark)))
                     WiloUtilities.SetReadBulk(_visible, true);
 
-                if (GUILayout.Button(Strings.T("popup.refresh"), GUILayout.Width(90)))
+                if (GUILayout.Button(Strings.T("popup.refresh"), GUILayout.Width(wRefresh)))
                     Refresh();
             }
         }
@@ -818,27 +842,59 @@ namespace DevForge.Wilo.Editor
         /// </summary>
         float CalcToolbarMinWidth()
         {
-            var style = GUI.skin.button;
-            float buttons = 0f;
-            foreach (var s in ModeLabels)
-                buttons += style.CalcSize(new GUIContent(s)).x + 12f;
+            // mide ambos toolbars con CalcSize y suma separadores + paddings + bordes
+            var btn = EditorStyles.miniButton;
+            float pad = 8f;  // tu padding lateral total por lado
+            float gap = 6f;  // espacio entre controles
 
-            const float spaceBetween = 6f;
-            const float searchMin    = 200f;
-            const float clearBtn     = 24f;
-            const float edges        = 40f;
+            // --- Fila 1 ---
+            float wTabs =
+                EditorStyles.miniButton.CalcSize(new GUIContent(Strings.T("tabs.currentSession"))).x +
+                EditorStyles.miniButton.CalcSize(new GUIContent(Strings.T("tabs.currentDay"))).x +
+                EditorStyles.miniButton.CalcSize(new GUIContent(Strings.T("tabs.lastSession"))).x +
+                EditorStyles.miniButton.CalcSize(new GUIContent(Strings.T("tabs.lastDay"))).x +
+                3 * gap;
 
-            // Include the second row width (with “Titles only” and actions)
-            float line1 = buttons + spaceBetween + searchMin + clearBtn + edges;
+            float wSearchX = 24f; // botón ✕
+            float wSearchMin = 200f; // mínimo del campo de búsqueda
+            float row1 = pad + wTabs + gap + wSearchMin + gap + wSearchX + pad;
 
-            float line2 = style.CalcSize(new GUIContent(Strings.T("popup.titlesOnly"))).x + 12f
-                + 6f + style.CalcSize(new GUIContent(Strings.T("popup.expandAll"))).x + 12f
-                + 6f + style.CalcSize(new GUIContent(Strings.T("popup.collapseAll"))).x + 12f
-                + 6f + style.CalcSize(new GUIContent(Strings.T("popup.markVisibleRead"))).x + 12f
-                + 6f + style.CalcSize(new GUIContent(Strings.T("popup.refresh"))).x + 12f
-                + edges;
+            // --- Fila 2 ---
+            float w1 = btn.CalcSize(new GUIContent(Strings.T("popup.titlesOnly"))).x + 12f;
+            float w2 = btn.CalcSize(new GUIContent(Strings.T("popup.expandAll"))).x + 12f;
+            float w3 = btn.CalcSize(new GUIContent(Strings.T("popup.collapseAll"))).x + 12f;
+            float w4 = btn.CalcSize(new GUIContent(Strings.T("popup.markVisibleRead"))).x + 12f;
+            float w5 = btn.CalcSize(new GUIContent(Strings.T("popup.refresh"))).x + 12f;
 
-            return Mathf.Ceil(Mathf.Max(line1, line2));
+            float row2 = pad + (w1 + w2 + w3 + w4 + w5) + (4 * gap) + pad;
+
+            // chrome de la ventana utility (borde/título)
+            float chrome = 28f;
+
+            return Mathf.Ceil(Mathf.Max(row1, row2) + chrome);
         }
+        
+        void EnsureFitsToolbar(bool allowGrow)
+        {
+            _lastComputedMin = CalcToolbarMinWidth();
+            minSize = new Vector2(Mathf.Max(560f, _lastComputedMin), minSize.y);
+
+            if (allowGrow && position.width + 0.5f < minSize.x)
+            {
+                // conservar el borde derecho para que no “salte”
+                var p = position;
+                float right = p.x + p.width;
+                p.width = minSize.x;
+
+                // límites de pantalla (simple)
+                float screenW = Screen.currentResolution.width;
+                p.width = Mathf.Min(p.width, screenW - 40f);
+                p.x = Mathf.Max(0f, right - p.width);
+
+                position = p;
+                Repaint();
+            }
+        }
+
     }
 }

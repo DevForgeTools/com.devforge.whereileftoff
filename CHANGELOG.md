@@ -4,9 +4,16 @@ All notable changes to **Where I Left Off** will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [Unreleased]
-### Added
-- (placeholder) — Add upcoming changes here until the next release.
+## [1.0.1] - 2025-09-24
+### Changed
+- **README** — Consolidated into a single file inside the package; localized variants (`README.es.md`, `README.en.md`) were removed.
+- **Documentation** — The former in-editor docs viewer was removed. The menu command now opens the external GitHub wiki instead.
+
+### Fixed
+- **Meta files** — Added missing `.meta` files to avoid Unity warnings.
+- **Dictionary loading** — Fixed issue where dictionaries were not recognized right after first install.
+- **Popup UI** — Corrected layout so it no longer overflows when using the English interface.
+
 
 ---
 

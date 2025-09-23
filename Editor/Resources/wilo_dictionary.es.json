@@ -80,7 +80,7 @@
     { "key": "popup.expandAll", "value": "Expandir todo" },
     { "key": "popup.collapseAll", "value": "Colapsar todo" },
     { "key": "popup.markVisibleRead", "value": "Marcar visibles como leídas" },
-    { "key": "popup.refresh", "value": "Refrescar" },
+    { "key": "popup.refresh", "value": "Actualizar" },
 
     { "key": "popup.noTitle", "value": "(Sin título)" },
     { "key": "popup.badge.reread", "value": "Releer" },
