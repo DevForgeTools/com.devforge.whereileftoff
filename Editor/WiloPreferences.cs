@@ -167,6 +167,8 @@ namespace DevForge.Wilo.Editor
                         SetForcedLanguage(forced);
                         Locale.ClearCache();
                         Strings.Reload();
+                        
+                        WiloNoteWindow.NotifyLocaleChanged(); // Call to update UI to match new language size
                     }
 
                     // ----- Startup -----

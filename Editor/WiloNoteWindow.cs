@@ -90,6 +90,8 @@ namespace DevForge.Wilo.Editor
         private string _pendingRefsDialog;
         /// <summary>Outer padding for the main layout.</summary>
         private const int SPadding = 12;
+        private float _minWidth = 420f;
+        bool _pendingMinWidthRecalc = false;
         
         // Cached rects and constants for layout/resize
         Rect _rMsgArea;      
@@ -137,6 +139,7 @@ namespace DevForge.Wilo.Editor
 
                 w._mode = OpenMode.Normal;
                 w.minSize = new Vector2(420, 320);
+                w._pendingMinWidthRecalc = true;
                 w.Show();
                 
             }
@@ -166,6 +169,7 @@ namespace DevForge.Wilo.Editor
 
                     u._mode = OpenMode.Exit;
                     u.minSize = new Vector2(420, 280);
+                    u._pendingMinWidthRecalc = true;
                     u.ShowUtility();
                     u.Focus();
                     u.ShowNotification(new GUIContent(Strings.T("msg.exitPrompt")));
@@ -174,6 +178,7 @@ namespace DevForge.Wilo.Editor
                 {
                     // Reuse the existing floating window
                     open._mode = OpenMode.Exit;
+                    open._pendingMinWidthRecalc = true;
                     open.Focus();
                     open.Repaint();
                     open.ShowNotification(new GUIContent(Strings.T("msg.exitPrompt")));
@@ -186,6 +191,7 @@ namespace DevForge.Wilo.Editor
             w.titleContent = new GUIContent(WindowTitle);
             
             w._mode = OpenMode.Exit;
+            w._pendingMinWidthRecalc = true;
             w.minSize = new Vector2(420, 280);
             w.ShowUtility();
             w.Focus();
@@ -232,6 +238,13 @@ namespace DevForge.Wilo.Editor
         /// </summary>
         private void OnGUI()
         {
+            if (_pendingMinWidthRecalc)
+            {
+                // Estamos dentro de OnGUI: ya podemos medir estilos y fijar minSize
+                EnsureMinWidthForCurrentMode_IMGUI();
+                _pendingMinWidthRecalc = false;
+            }
+            
             Shortcuts();
 
             using (new EditorGUILayout.VerticalScope(Styles.Pad))
@@ -1086,16 +1099,45 @@ namespace DevForge.Wilo.Editor
 
                 if (!docked)
                 {
-                    minSize = new Vector2(420f, contentHeight);
+                    minSize = new Vector2(_minWidth, contentHeight);
                     maxSize = new Vector2(8192f, contentHeight);
                 }
                 else
                 {
-                    minSize = new Vector2(420f, contentHeight);
+                    minSize = new Vector2(_minWidth, contentHeight);
                     maxSize = new Vector2(8192f, 8192f);
                 }
             }
         }
+        
+        float ComputeExitButtonsRowMinWidth_IMGUI()
+        {
+            // Aquí sí es seguro usar GUI.skin / EditorStyles
+            GUIStyle s = GUI.skin.button;
+            float gap = 6f;
+            float outer = SPadding * 2f;
+
+            float w1 = s.CalcSize(new GUIContent(Strings.T("btn.saveAndQuit"))).x + s.margin.horizontal;
+            float w2 = s.CalcSize(new GUIContent(Strings.T("btn.saveNewAndQuit"))).x + s.margin.horizontal;
+            float w3 = s.CalcSize(new GUIContent(Strings.T("btn.quitWithoutSaving"))).x + s.margin.horizontal;
+            float w4 = s.CalcSize(new GUIContent(Strings.T("btn.cancel"))).x + s.margin.horizontal;
+
+            return Mathf.Ceil(outer + w1 + w2 + w3 + w4 + gap * 3f);
+        }
+
+        void EnsureMinWidthForCurrentMode_IMGUI()
+        {
+            const float baseMin = 420f;
+            float m = (_mode == OpenMode.Exit)
+                ? Mathf.Max(baseMin, ComputeExitButtonsRowMinWidth_IMGUI())
+                : baseMin;
+
+            _minWidth = m;
+            var ms = minSize;
+            ms.x = _minWidth;
+            minSize = ms;
+        }
+
         
         /// <summary>
         /// Cancels exit mode: restores the docked owner (if present) back to normal and closes utility popups.
@@ -1121,9 +1163,19 @@ namespace DevForge.Wilo.Editor
             }
 
             _mode = OpenMode.Normal;
+            _pendingMinWidthRecalc = true;
             Repaint();
             ShowNotification(new GUIContent(Strings.T("msg.closeCancelled")));
             WiloQuitHook.CancelExitPrompt();
+        }
+        
+        public static void NotifyLocaleChanged()
+        {
+            foreach (var w in Resources.FindObjectsOfTypeAll<WiloNoteWindow>())
+            {
+                w._pendingMinWidthRecalc = true;
+                w.Repaint();
+            }
         }
 
         /// <summary>
