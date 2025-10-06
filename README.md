@@ -1,6 +1,6 @@
 # Where I Left Off (WILO)
 
-<img src="Docs/Screenshots/WILO_Card.png" alt="WILO Card" width="880"/>
+<img src="Docs/Screenshots/Wilo_Card.png" alt="WILO Card" width="880"/>
 
 [![Version](https://img.shields.io/badge/version-1.0.0-blue.svg)](CHANGELOG.md)
 [![License](https://img.shields.io/badge/license-EULA-important.svg)](EULA.md)
@@ -12,7 +12,7 @@
 ---
 
 ## 🎬 Demo
-![Demo GIF](Docs/Gifs/demo.gif)
+![Demo GIF](Docs/Gifs/Demo.gif)
 
 ---
 
@@ -108,15 +108,15 @@ Options:
 ## 📸 Screenshots
 
 <!-- Fila 1 -->
-<a href="Docs/Screenshots/WILONote_Window.png"><img src="Docs/Screenshots/WILONote_Window.png" alt="Note Window" height="320"/></a>&nbsp;
-<a href="Docs/Screenshots/WILONoteQuit_Window.png"><img src="Docs/Screenshots/WILONoteQuit_Window.png" alt="Exit Popup" height="320"/></a>
+<a href="Docs/Screenshots/WiloNote_Window.png"><img src="Docs/Screenshots/WiloNote_Window.png" alt="Note Window" height="320"/></a>&nbsp;
+<a href="Docs/Screenshots/WiloNoteQuit_Window.png"><img src="Docs/Screenshots/WiloNoteQuit_Window.png" alt="Exit Popup" height="320"/></a>
 
 <!-- Fila 2 -->
-<a href="Docs/Screenshots/WILOLastNotes_Window.png"><img src="Docs/Screenshots/WILOLastNotes_Window.png" alt="Startup Reminder" height="260"/></a>&nbsp;
-<a href="Docs/Screenshots/WILOBrowser_Window.png"><img src="Docs/Screenshots/WILOBrowser_Window.png" alt="Notes Browser" height="260"/></a>
+<a href="Docs/Screenshots/WiloLastNotes_Window.png"><img src="Docs/Screenshots/WiloLastNotes_Window.png" alt="Startup Reminder" height="260"/></a>&nbsp;
+<a href="Docs/Screenshots/WiloBrowser_Window.png"><img src="Docs/Screenshots/WiloBrowser_Window.png" alt="Notes Browser" height="260"/></a>
 
 <!-- Preferencias -->
-<a href="Docs/Screenshots/WILOPreferences_Window.png"><img src="Docs/Screenshots/WILOPreferences_Window.png" alt="Preferences" width="840"/></a>
+<a href="Docs/Screenshots/WiloPreferences_Window.png"><img src="Docs/Screenshots/WiloPreferences_Window.png" alt="Preferences" width="840"/></a>
 
 
 
