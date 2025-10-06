@@ -1,7 +1,7 @@
 {
   "name": "com.devforge.whereileftoff",
   "displayName": "Where I Left Off",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Quick exit notes and next-launch reminders for your Unity project. Save references to scenes, prefabs, and scripts.",
   "unity": "6000.0",
   "unityRelease": "43f1",

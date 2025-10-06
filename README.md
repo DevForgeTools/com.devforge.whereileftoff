@@ -1,5 +1,7 @@
 # Where I Left Off (WILO)
 
+<img src="Docs/Screenshots/WILO_Card.png" alt="WILO Card" width="880"/>
+
 [![Version](https://img.shields.io/badge/version-1.0.0-blue.svg)](CHANGELOG.md)
 [![License](https://img.shields.io/badge/license-EULA-important.svg)](EULA.md)
 [![Issues](https://img.shields.io/badge/issues-open-brightgreen.svg)](https://github.com/DevForgeTools/WhereILeftOff/issues)
@@ -10,8 +12,7 @@
 ---
 
 ## 🎬 Demo
-> Replace this with a short 5–8s GIF showing: open Unity → Quit popup → Startup reminder → Browser.
-![Demo GIF placeholder](docs/gif/demo.gif)
+![Demo GIF](Docs/Gifs/demo.gif)
 
 ---
 
@@ -25,7 +26,7 @@
 - **Persistence**: search, filters, and layout remembered per project.
 - **Zero-friction**: no external services, no mandatory setup.
 - **Local data**: JSON under `Library/` (keeps VCS clean).
-- **Auto-locale**: Spanish UI/docs if Unity/OS is Spanish; otherwise English.
+- **Localization**: Spanish UI/docs or English.
 - **Editor-only**: excluded from builds, safe for runtime.
 - **UPM-friendly**: install via Git URL for easy updating.
 
@@ -56,6 +57,8 @@
 ---
 
 ## 🧭 Menus
+- **Tools → DevForge → Where I Left Off → Note**
+- **Tools → DevForge → Where I Left Off → Last Notes**
 - **Tools → DevForge → Where I Left Off → Browser**
 - **Tools → DevForge → Where I Left Off → Open Documentation**
 
@@ -67,8 +70,8 @@ Open **Edit → Preferences… → Where I Left Off** (or the ⚙️ in the Brow
 Options:
 - Show popup on **Quit**.
 - Show popup on **Startup** (last session or last day).
-- Clear temporary drafts.
-- Force language: `wilo.forceLang = ES | EN`.
+- Overwrite options **Per session** or **Per day** with same title
+- Language: `EN | ES`.
 
 ---
 
@@ -91,7 +94,6 @@ Options:
 ## 🧪 Compatibility
 - Tested on **Unity 6**.
 - **Editor-only** package (excluded from builds).
-- IMGUI UI (stable). Optional UI Toolkit support planned.
 
 ---
 
@@ -99,26 +101,32 @@ Options:
 - **Can I disable popups?** Yes, via **Preferences** or from the Browser.
 - **Cloud sync?** No. Local by design.
 - **Export/Import?** Copy the JSON files under `Library/WhereILeftOff/`.
-- **Localization?** Detects Spanish; defaults to English otherwise.
+- **Localization?** Choose between Spanish or English.
 
 ---
 
 ## 📸 Screenshots
-> Replace with real screenshots (1200×900 for hero / 800×450 for detail).
-- Exit Popup
-- Startup Reminder
-- Notes Browser — Titles-only
-- Notes Browser — Expanded with refs
 
-![Screenshot 1 placeholder](docs/screenshots/1.png)
-![Screenshot 2 placeholder](docs/screenshots/2.png)
-![Screenshot 3 placeholder](docs/screenshots/3.png)
+<!-- Fila 1 -->
+<a href="Docs/Screenshots/WILONote_Window.png"><img src="Docs/Screenshots/WILONote_Window.png" alt="Note Window" height="320"/></a>&nbsp;
+<a href="Docs/Screenshots/WILONoteQuit_Window.png"><img src="Docs/Screenshots/WILONoteQuit_Window.png" alt="Exit Popup" height="320"/></a>
 
----
+<!-- Fila 2 -->
+<a href="Docs/Screenshots/WILOLastNotes_Window.png"><img src="Docs/Screenshots/WILOLastNotes_Window.png" alt="Startup Reminder" height="260"/></a>&nbsp;
+<a href="Docs/Screenshots/WILOBrowser_Window.png"><img src="Docs/Screenshots/WILOBrowser_Window.png" alt="Notes Browser" height="260"/></a>
+
+<!-- Preferencias -->
+<a href="Docs/Screenshots/WILOPreferences_Window.png"><img src="Docs/Screenshots/WILOPreferences_Window.png" alt="Preferences" width="840"/></a>
+
+
+
+
+
 
 ## 💬 Support
 - Open an issue: [GitHub Issues](https://github.com/DevForgeTools/WhereILeftOff/issues)
-- Or contact us directly.
+- Or contact us directly at:
+>maglucen@gmail.com
 
 ---
 
